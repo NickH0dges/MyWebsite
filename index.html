@@ -4,24 +4,29 @@
   <meta charset="UTF-8">
   <title>Nick Hodges - Portfolio</title>
   <style>
-    /* Body / Background */
-    body {
+    /* ==== Global + Background Fix ==== */
+    html, body {
       margin: 0;
+      height: 100%;
       font-family: "Segoe UI", Verdana, sans-serif;
-      height: 100vh;
-      overflow-x: hidden;
-      overflow-y: auto;
       color: #fff;
       text-align: center;
+      background: radial-gradient(circle at center, #63c9ff, #0070c9 60%, #003b70 100%) fixed;
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      overflow-x: hidden;
+    }
 
-      /* Windows 7 gradient background */
-      background: radial-gradient(circle at center, #63c9ff, #0070c9 60%, #003b70 100%);
+    body {
       position: relative;
+      min-height: 100vh;
     }
 
     /* SVG swoosh lines */
     #swooshes {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -31,7 +36,7 @@
 
     /* Bubble canvas */
     #bubbles {
-      position: fixed;
+      position: absolute;
       top: 0;
       left: 0;
       width: 100%;
@@ -79,22 +84,27 @@
       padding: 3rem 1rem;
     }
 
-    /* Solid cards */
+    /* Solid cards for readability */
     .card {
       margin: 1rem auto;
       padding: 2rem;
       max-width: 700px;
       border-radius: 20px;
-      background: #f8f9fb; /* solid white/very light gray */
+      background: #f8f9fb;
       border: 1px solid #ddd;
       box-shadow: 0 6px 25px rgba(0,0,0,0.5);
-      color: #000; /* black text for max readability */
+      color: #000;
       text-shadow: none;
     }
 
     .card h2 {
       margin-top: 0;
       color: #003b70;
+    }
+
+    .card h3 {
+      color: #004b8d;
+      margin-bottom: 0.5rem;
     }
 
     a.link-glow {
@@ -110,12 +120,9 @@
 <body>
   <!-- SVG swoosh lines -->
   <svg id="swooshes" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <!-- Upper swooshes -->
     <path d="M 0 600 Q 400 300 1200 500" stroke="rgba(255,255,255,0.35)" stroke-width="2" fill="none"/>
     <path d="M 0 500 Q 500 200 1400 400" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
     <path d="M 200 700 Q 800 400 1600 600" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none"/>
-
-    <!-- Lower swooshes -->
     <path d="M 0 900 Q 600 700 1400 850" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
     <path d="M 100 1000 Q 800 750 1600 950" stroke="rgba(255,255,255,0.25)" stroke-width="2" fill="none"/>
   </svg>
@@ -126,11 +133,11 @@
   <!-- Header -->
   <header>
     <h1>Nick Hodges</h1>
-    <h2>nhadmin.cc</h2>
     <p>Cybersecurity • Networking • Projects</p>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
+      <a href="#inspiration">Inspiration</a>
       <a href="#contact">Contact</a>
       <a href="resume.html">Resume</a>
     </nav>
@@ -158,50 +165,63 @@
   </section>
 
   <!-- Projects -->
-<section id="projects" class="card">
-  <h2>Projects</h2>
+  <section id="projects" class="card">
+    <h2>Projects</h2>
 
-  <h3>PowerShell Hardening Scripts for Cyber Defense Team</h3>
-  <p>
-  Developed a set of <strong>automated PowerShell scripts</strong> used in 
-  <a href="https://semo.edu/colleges-departments/business-computing/computer-science/cybersecurity-institute/cyber-defense-team.html" target="_blank" class="link-glow">
-    collegiate cyber defense competitions
-  </a>.
-  These scripts enforce host-based firewall rules, configure system security policies, 
-  and generate Group Policy Objects (GPOs) to rapidly harden and secure Windows environments 
-  under time pressure.
-</p>
+    <h3>PowerShell Hardening Scripts for Cyber Defense Team</h3>
+    <p>
+      Developed a set of <strong>automated PowerShell scripts</strong> used in 
+      <a href="https://semo.edu/academics/programs/cyber-defense.html" target="_blank" class="link-glow">
+        collegiate cyber defense competitions
+      </a>. These scripts enforce host-based firewall rules, configure system 
+      security policies, and generate Group Policy Objects (GPOs) to rapidly 
+      harden and secure Windows environments under time pressure.
+    </p>
 
-  <h3>Proxmox Homelab Environment</h3>
-  <p>
-    Built and maintain a <strong>two-node Proxmox homelab</strong> hosting multiple virtual machines, 
-    including Windows Server, various client OSs, and security tools such as Wazuh, Snort, 
-    Kali Linux, and Metasploitable. This environment allows me to simulate enterprise networks, 
-    experiment with defensive monitoring, and test security workflows in realistic scenarios.
-  </p>
-  
-   <h3>Security+ Certification Preparation</h3>
-  <p>
-    Currently dedicating significant time to preparing for the <strong>CompTIA Security+ (SY0-701)</strong> certification. 
-    My focus is on mastering security fundamentals, risk management, and network defense principles 
-    through structured study sessions, practice exams, and hands-on reinforcement in my homelab. 
-    This certification effort reflects my commitment to advancing my cybersecurity knowledge and 
-    validating it with an industry-recognized credential.
-  </p>
-</section>
+    <h3>Proxmox Homelab Environment</h3>
+    <p>
+      Built and maintain a <strong>two-node Proxmox homelab</strong> hosting multiple virtual machines, 
+      including Windows Server, various client OSs, and security tools such as Wazuh, Snort, 
+      Kali Linux, and Metasploitable. This environment allows me to simulate enterprise networks, 
+      experiment with defensive monitoring, and test security workflows in realistic scenarios.
+    </p>
 
+    <h3>Security+ Certification Preparation</h3>
+    <p>
+      Currently dedicating significant time to preparing for the <strong>CompTIA Security+ (SY0-701)</strong> certification. 
+      My focus is on mastering security fundamentals, risk management, and network defense principles 
+      through structured study sessions, practice exams, and hands-on reinforcement in my homelab. 
+      This certification effort reflects my commitment to advancing my cybersecurity knowledge and 
+      validating it with an industry-recognized credential.
+    </p>
+  </section>
+
+  <!-- Inspiration -->
+  <section id="inspiration" class="card" style="background:#e9f4ff;">
+    <h2>Inspiration</h2>
+    <p>
+      I’ve always loved remembering when the internet felt simpler — when websites were fun,
+      personal, and full of creativity instead of ads and algorithms. I grew up during that
+      time, and it shaped how I think about technology today.
+    </p>
+    <p>
+      I’ve always had a soft spot for <strong>Windows 7</strong>. Its design, smooth gradients,
+      and colorful glass aesthetic remind me of a time when technology felt new and exciting.
+      This website is my little tribute to that era — a blend of nostalgia and simplicity,
+      built to capture the feeling of when computers first started to inspire me.
+    </p>
+  </section>
 
   <!-- Contact -->
   <section id="contact" class="card">
     <h2>Contact</h2>
-    <p>Email: <span class="link-glow">nahodges02@gmail.com</span></p>
+    <p>Email: <a href="mailto:nahodges02@gmail.com" class="link-glow">nahodges02@gmail.com</a></p>
     <p>
-  LinkedIn: 
-  <a href="https://www.linkedin.com/in/nick-hodges/" target="_blank" class="link-glow">
-    linkedin.com/in/nick-hodges
-  </a>
-</p>
-
+      LinkedIn:
+      <a href="https://www.linkedin.com/in/nick-hodges/" target="_blank" class="link-glow">
+        linkedin.com/in/nick-hodges
+      </a>
+    </p>
   </section>
 
   <script>
@@ -218,9 +238,7 @@
     resizeCanvas();
 
     class Bubble {
-      constructor() {
-        this.reset();
-      }
+      constructor() { this.reset(); }
       reset() {
         this.x = Math.random() * canvas.width;
         this.y = canvas.height + Math.random() * 100;
@@ -230,28 +248,19 @@
       }
       update() {
         this.y -= this.speed;
-        if (this.y + this.size < 0) {
-          this.reset();
-        }
+        if (this.y + this.size < 0) this.reset();
       }
       draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-
         ctx.fillStyle = "rgba(255, 255, 255, 0.05)";
         ctx.fill();
-
         ctx.strokeStyle = `hsla(${this.hue}, 90%, 60%, 0.9)`;
         ctx.lineWidth = 3;
         ctx.stroke();
-
-        let grad = ctx.createRadialGradient(
-          this.x - this.size * 0.3,
-          this.y - this.size * 0.3,
-          this.size * 0.1,
-          this.x,
-          this.y,
-          this.size
+        const grad = ctx.createRadialGradient(
+          this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.1,
+          this.x, this.y, this.size
         );
         grad.addColorStop(0, "rgba(255,255,255,0.8)");
         grad.addColorStop(1, "rgba(255,255,255,0)");
@@ -260,16 +269,11 @@
       }
     }
 
-    for (let i = 0; i < 20; i++) {
-      bubbles.push(new Bubble());
-    }
+    for (let i = 0; i < 20; i++) bubbles.push(new Bubble());
 
     function animate() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      bubbles.forEach(bubble => {
-        bubble.update();
-        bubble.draw();
-      });
+      bubbles.forEach(b => { b.update(); b.draw(); });
       requestAnimationFrame(animate);
     }
     animate();
