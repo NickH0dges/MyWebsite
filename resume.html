@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Nick Hodges - Resume</title>
+  <style>
+    body {
+      margin: 0;
+      background: radial-gradient(circle at center, #63c9ff, #0070c9 60%, #003b70 100%);
+      font-family: "Segoe UI", Verdana, sans-serif;
+      color: #fff;
+      text-align: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    header {
+      padding: 1.2rem;
+      background: rgba(255,255,255,0.2);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.3);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2rem;
+      text-shadow: 0 0 8px rgba(255,255,255,0.8);
+    }
+
+    iframe {
+      width: 100%;
+      height: calc(100vh - 80px);
+      border: none;
+      box-shadow: 0 0 30px rgba(0,0,0,0.6);
+    }
+
+    a.back {
+      color: #fff;
+      font-weight: bold;
+      text-decoration: none;
+      margin-left: 1rem;
+      background: rgba(255,255,255,0.25);
+      padding: 0.3rem 1rem;
+      border-radius: 10px;
+      transition: all 0.2s ease;
+    }
+    a.back:hover {
+      background: rgba(255,255,255,0.4);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="index.html" class="back">← Back</a>
+    <h1>My Resume</h1>
+  </header>
+
+  <!-- Embed your resume -->
+  <iframe src="resume.pdf"></iframe>
+</body>
+</html>
