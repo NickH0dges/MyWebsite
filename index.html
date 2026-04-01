@@ -14,41 +14,33 @@
       background: #003b70;
     }
 
-    /* === LAYERS === */
+    /* === BACKGROUND LAYERS === */
     .bg-container {
       position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
       overflow: hidden;
       z-index: 0;
     }
-
     #gradient {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       background: radial-gradient(circle at 40% 40%, #63c9ff 0%, #0070c9 60%, #003b70 100%);
       z-index: 1;
     }
-
     #swooshes {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       z-index: 2;
     }
-
     #bubbles {
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 100%; height: 100%;
       z-index: 3;
       pointer-events: none;
     }
 
-    /* === CONTENT === */
+    /* === HEADER === */
     header {
       padding: 2rem;
       background: rgba(255,255,255,0.2);
@@ -58,19 +50,14 @@
       position: relative;
       z-index: 10;
     }
-
     h1 {
       font-size: 3rem;
       text-shadow: 0 0 8px rgba(255,255,255,0.8), 2px 2px 4px rgba(0,0,0,0.6);
       margin: 0;
     }
-
-    nav {
-      margin-top: 1rem;
-    }
-
+    nav { margin-top: 1rem; }
     nav a {
-      margin: 0 1rem;
+      margin: 0 0.5rem;
       padding: 0.5rem 1.2rem;
       border-radius: 25px;
       text-decoration: none;
@@ -81,18 +68,17 @@
       box-shadow: inset 0 1px 4px rgba(255,255,255,0.6), 0 2px 6px rgba(0,0,0,0.4);
       transition: all 0.3s ease;
     }
-
     nav a:hover {
       background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
       box-shadow: 0 0 12px rgba(0,255,255,0.7), 0 0 18px rgba(0,128,255,0.8);
     }
 
+    /* === CONTENT === */
     section {
       padding: 3rem 1rem;
       position: relative;
       z-index: 10;
     }
-
     .card {
       margin: 1rem auto;
       padding: 2rem;
@@ -103,154 +89,358 @@
       box-shadow: 0 6px 25px rgba(0,0,0,0.5);
       color: #000;
       text-shadow: none;
+      text-align: left;
+    }
+    .card h2 { color: #003b70; margin-top: 0; text-align: center; }
+    .card h3 { color: #004b8d; margin-bottom: 0.5rem; margin-top: 1.5rem; }
+    .card h3:first-of-type { margin-top: 0; }
+
+    /* Certifications / Skills pills */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.5rem;
+    }
+    .tag {
+      background: #ddeeff;
+      color: #003b70;
+      border: 1px solid #99ccff;
+      border-radius: 20px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.85rem;
+      font-weight: bold;
     }
 
-    .card h2 { color: #003b70; margin-top: 0; }
-    .card h3 { color: #004b8d; margin-bottom: 0.5rem; }
+    /* Experience entries */
+    .exp-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: 0.25rem;
+    }
+    .exp-date {
+      font-size: 0.85rem;
+      color: #555;
+      white-space: nowrap;
+    }
+    .card ul {
+      margin: 0.5rem 0 0 1rem;
+      padding: 0;
+    }
+    .card ul li { margin-bottom: 0.4rem; line-height: 1.5; }
 
     a.link-glow { color: #0070c9; font-weight: bold; text-decoration: none; }
     a.link-glow:hover { text-decoration: underline; }
+
   </style>
 </head>
 <body>
-  <!-- === BACKGROUND LAYERS === -->
-  <div class="bg-container">
-    <div id="gradient"></div>
 
-    <svg id="swooshes" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-      <path d="M 0 600 Q 400 300 1200 500" stroke="rgba(255,255,255,0.35)" stroke-width="2" fill="none"/>
-      <path d="M 0 500 Q 500 200 1400 400" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
-      <path d="M 200 700 Q 800 400 1600 600" stroke="rgba(255,255,255,0.2)" stroke-width="1.5" fill="none"/>
-      <path d="M 0 900 Q 600 700 1400 850" stroke="rgba(255,255,255,0.3)" stroke-width="1.5" fill="none"/>
-      <path d="M 100 1000 Q 800 750 1600 950" stroke="rgba(255,255,255,0.25)" stroke-width="2" fill="none"/>
-    </svg>
+<!-- === BACKGROUND === -->
+<div class="bg-container">
+  <div id="gradient"></div>
+  <svg id="swooshes" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+    <path d="M 0 600 Q 400 300 1200 500"  stroke="rgba(255,255,255,0.35)" stroke-width="2"   fill="none"/>
+    <path d="M 0 500 Q 500 200 1400 400"  stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
+    <path d="M 200 700 Q 800 400 1600 600" stroke="rgba(255,255,255,0.2)"  stroke-width="1.5" fill="none"/>
+    <path d="M 0 900 Q 600 700 1400 850"  stroke="rgba(255,255,255,0.3)"  stroke-width="1.5" fill="none"/>
+    <path d="M 100 1000 Q 800 750 1600 950" stroke="rgba(255,255,255,0.25)" stroke-width="2" fill="none"/>
+  </svg>
+  <canvas id="bubbles"></canvas>
+</div>
 
-    <canvas id="bubbles"></canvas>
-  </div>
+<!-- === PAGE CONTENT (rendered by JS from DATA below) === -->
+<header id="site-header"></header>
+<div id="site-body"></div>
 
-  <!-- === CONTENT === -->
-  <header>
-    <h1>Nick Hodges</h1>
-    <p>Cybersecurity • Networking • Projects</p>
-    <nav>
-      /<a href="#about">About</a>
-      /<a href="#projects">Projects</a>
-     /<a href="#inspiration">Inspiration</a>
-      <a href="#contact">Contact</a>
-      <a href="resume.html">Resume</a>
-    </nav>
-  </header>
+<script>
+/* ============================================================
+   DATA — edit everything here, no need to touch the HTML below
+   ============================================================ */
+const DATA = {
 
-  <section id="about" class="card">
-    <h2>About Me</h2>
-    <p>Hi! My name is Nick Hodges, and I’m currently a Cybersecurity major at 
-      <strong>Southeast Missouri State University (SEMO)</strong> with a minor in Computer Networking.</p>
-    <p>I’ve had a love for computers for as long as I can remember. I got my first computer when I was 
-      just three years old, but really started experimenting and tinkering around the age of eight or nine. 
-      My passion for cybersecurity began in high school, where I served as the team captain of my JROTC unit’s 
-      cybersecurity team for three years. In my senior year, I passed the captain role to a friend, but stayed 
-      deeply involved in competing and mentoring.</p>
-    <p>I’ve always been a Windows person at heart, and my specialty lies in <strong>hardening and securing 
-      Windows systems</strong>—from Active Directory and DNS to overall system defense. That’s where I thrive: 
-      building secure environments, locking down systems, and protecting critical infrastructure.</p>
-  </section>
+  name: "Nick Hodges",
+  tagline: "Cybersecurity • Networking • IT",
 
-  <section id="projects" class="card">
-    <h2>Projects</h2>
+  resumeHref: "resume.html",
 
-    <h3>PowerShell Hardening Scripts for Cyber Defense Team</h3>
-    <p>Developed a set of <strong>automated PowerShell scripts</strong> used in 
-      <a href="https://semo.edu/academics/programs/cyber-defense.html" target="_blank" class="link-glow">
-        collegiate cyber defense competitions
-      </a>. These scripts enforce host-based firewall rules, configure system 
-      security policies, and generate Group Policy Objects (GPOs) to rapidly 
-      harden and secure Windows environments under time pressure.</p>
+  about: {
+    heading: "About Me",
+    paragraphs: [
+      `Hi! I'm <strong>Nick Hodges</strong>, a Cybersecurity major at
+       <strong>Southeast Missouri State University (SEMO)</strong> with a minor in Computer
+       Networking, graduating May 2026.`,
+      `I've had a love for computers for as long as I can remember — I got my first one at
+       three years old and started really tinkering around age eight or nine. My passion for
+       cybersecurity kicked off in high school, where I served as team captain of my JROTC
+       unit's cyber team for three years.`,
+      `My specialty is <strong>hardening and securing Windows environments</strong> — Active
+       Directory, DNS, Group Policy, system defense. That's where I thrive: building secure
+       environments, locking down systems, and protecting critical infrastructure.`,
+    ],
+    certifications: ["CompTIA Security+", "CompTIA Network+"],
+    skillSections: [
+      {
+        label: "Cybersecurity",
+        items: ["Splunk", "SIEM", "Microsoft Defender XDR", "Wireshark"],
+      },
+      {
+        label: "Systems Administration",
+        items: ["Windows Server", "Active Directory", "LDAP", "Entra ID",
+                "Microsoft 365 / Exchange", "PowerShell", "Proxmox", "LanSweeper"],
+      },
+      {
+        label: "Networking",
+        items: ["Firewalls", "VLANs", "TCP/IP", "Cisco", "DNS", "DHCP", "PBX"],
+      },
+    ],
+  },
 
-    <h3>Proxmox Homelab Environment</h3>
-    <p>Built and maintain a <strong>two-node Proxmox homelab</strong> hosting multiple virtual machines, 
-      including Windows Server, various client OSs, and security tools such as Wazuh, Snort, 
-      Kali Linux, and Metasploitable. This environment allows me to simulate enterprise networks, 
-      experiment with defensive monitoring, and test security workflows in realistic scenarios.</p>
+  experience: [
+    {
+      title: "IT Support Technician",
+      org: "Southeast Missouri State University",
+      dates: "05/2023 – Present",
+      bullets: [
+        "Provide day-to-day technical support to students, faculty, and staff — hardware, software, network issues, account access, and application errors.",
+        "Troubleshoot Windows OS issues, wired/wireless connectivity, and printing problems while documenting solutions and escalating when needed.",
+        "Train and mentor student technicians on troubleshooting techniques, ticket documentation, and customer service expectations.",
+        "Work closely with full-time IT staff on daily operations, system maintenance, and special projects.",
+      ],
+    },
+    {
+      title: "IT Service Desk Intern",
+      org: "Grimco",
+      dates: "05/2025 – 08/2025",
+      bullets: [
+        "Resolved ~20–25 Jira tickets per day involving Microsoft 365, warehouse management systems (WMS), and ERP platforms.",
+        "Provisioned and deprovisioned user accounts, managed security group permissions and email distribution lists.",
+      ],
+    },
+    {
+      title: "Information Technology Intern",
+      org: "Spectrum Brands",
+      dates: "05/2024 – 08/2024",
+      bullets: [
+        "Provided Level 2 support for ~3,000 users across Windows, SAP, and Citrix environments.",
+        "Led an intern-driven project to upgrade 150+ employee systems from Windows 10 to Windows 11 on an accelerated timeline.",
+        "Managed full lifecycle of end-user devices: provisioning, deprovisioning, hardware prep, secure data wiping, and asset disposal.",
+      ],
+    },
+    {
+      title: "Windows Systems Administrator",
+      org: "National Collegiate Cyber Defense Competition (CCDC)",
+      dates: "08/2022 – Present",
+      bullets: [
+        "Harden Windows Server environments: AD security policies, firewall config, user permissions, vulnerability remediation.",
+        "Monitor SIEM logs for real-time threat detection and lead incident response under competition pressure.",
+        "Collaborate with teammates to document configurations, optimize defense strategies, and maintain system availability.",
+      ],
+    },
+    {
+      title: "Resident Assistant",
+      org: "Southeast Missouri State University",
+      dates: "08/2024 – Present",
+      bullets: [
+        "Provide immediate on-call response to student and facility emergencies for 60+ residents.",
+        "Plan and coordinate monthly resident events to build community and promote engagement.",
+        "Manage access control systems to assist with lockouts and key replacements per security procedures.",
+      ],
+    },
+  ],
 
-    <h3>Security+ Certification Preparation</h3>
-    <p>Currently dedicating significant time to preparing for the <strong>CompTIA Security+ (SY0-701)</strong> certification. 
-      My focus is on mastering security fundamentals, risk management, and network defense principles 
-      through structured study sessions, practice exams, and hands-on reinforcement in my homelab. 
-      This certification effort reflects my commitment to advancing my cybersecurity knowledge and 
-      validating it with an industry-recognized credential.</p>
-  </section>
+  projects: [
+    {
+      title: "Network Traffic Forensics Tool (CS499 Capstone)",
+      body: `A <strong>React/TypeScript + Flask</strong> web application for analyzing PCAP files.
+             Upload a capture file and get a breakdown of traffic flows, protocol distribution,
+             and flagged anomalies. Built as a capstone project demonstrating full-stack development
+             and network forensics skills.`,
+    },
+    {
+      title: "PowerShell Hardening Scripts",
+      body: `Automated PowerShell scripts built for collegiate cyber defense competitions.
+             Enforce host-based firewall rules, configure security policies, and generate GPOs
+             to rapidly harden Windows environments under time pressure.`,
+    },
+    {
+      title: "Proxmox Home Lab",
+      body: `Two-node Proxmox environment hosting Windows Server, Active Directory, Kali Linux,
+             Metasploitable, Wazuh, and Snort. Includes a Cloudflare tunnel with MFA for remote
+             access. Used for simulating enterprise networks and testing defensive workflows.`,
+    },
+    {
+      title: "Cisco 3504 WLC Lab",
+      body: `Currently building out a Cisco Wireless LAN Controller lab environment to practice
+             AP adoption and wireless network management as part of CCNA preparation.`,
+    },
+    {
+      title: "Chrome Extension — Banner to TeamDynamix",
+      body: `Built a Chrome extension to automate copying student data from SEMO's Banner system
+             into TeamDynamix ticketing at the help desk, reducing manual data entry time.`,
+    },
+  ],
 
-  <section id="inspiration" class="card" style="background:#e9f4ff;">
-    <h2>Inspiration</h2>
-    <p>I’ve always loved remembering when the internet felt simpler — when websites were fun,
-      personal, and full of creativity instead of ads and algorithms. I grew up during that
-      time, and it shaped how I think about technology today.</p>
-    <p>I’ve always had a soft spot for <strong>Windows 7</strong>. Its design, smooth gradients,
-      and colorful glass aesthetic remind me of a time when technology felt new and exciting.
-      This website is my little tribute to that era — a blend of nostalgia and simplicity,
-      built to capture the feeling of when computers first started to inspire me.</p>
-  </section>
+  inspiration: {
+    heading: "Inspiration",
+    paragraphs: [
+      `I've always loved remembering when the internet felt simpler — when websites were fun,
+       personal, and full of creativity instead of ads and algorithms. I grew up during that
+       time, and it shaped how I think about technology today.`,
+      `I've always had a soft spot for <strong>Windows 7</strong>. Its design, smooth gradients,
+       and colorful glass aesthetic remind me of a time when technology felt new and exciting.
+       This site is my little tribute to that era — a blend of nostalgia and simplicity,
+       built to capture the feeling of when computers first started to inspire me.`,
+    ],
+  },
 
-  <section id="contact" class="card">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:nahodges02@gmail.com" class="link-glow">nahodges02@gmail.com</a></p>
-    <p>LinkedIn:
-      <a href="https://www.linkedin.com/in/nick-hodges/" target="_blank" class="link-glow">
-        linkedin.com/in/nick-hodges
-      </a>
-    </p>
-  </section>
+  contact: {
+    email: "nahodges02@gmail.com",
+    linkedin: "https://www.linkedin.com/in/nick-hodges/",
+    linkedinLabel: "linkedin.com/in/nick-hodges",
+  },
 
-  <script>
-    const canvas = document.getElementById("bubbles");
-    const ctx = canvas.getContext("2d");
-    let bubbles = [];
+  /* Bubble speed: increase minSpeed/maxSpeed to go faster */
+  bubbles: {
+    count: 20,
+    minSize: 30,
+    maxSize: 80,
+    minSpeed: 1.5,   // was 0.3
+    maxSpeed: 3.5,   // was 1.3
+  },
+};
 
-    function resizeCanvas() {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
+/* ============================================================
+   RENDER — builds the page from DATA, no need to edit below
+   ============================================================ */
+
+// Header
+document.getElementById("site-header").innerHTML = `
+  <h1>${DATA.name}</h1>
+  <p>${DATA.tagline}</p>
+  <nav><a href="${DATA.resumeHref}">Resume</a></nav>
+`;
+
+function section(id, extraClass, content) {
+  return `<section id="${id}" ${extraClass ? `class="${extraClass}"` : ""}>
+    <div class="card ${extraClass || ""}">${content}</div>
+  </section>`;
+}
+
+let html = "";
+
+// About
+const a = DATA.about;
+html += section("about", "", `
+  <h2>${a.heading}</h2>
+  ${a.paragraphs.map(p => `<p>${p}</p>`).join("")}
+  <h3>Certifications</h3>
+  <div class="tags">${a.certifications.map(c => `<span class="tag">${c}</span>`).join("")}</div>
+  ${a.skillSections.map(s => `
+    <h3>${s.label}</h3>
+    <div class="tags">${s.items.map(i => `<span class="tag">${i}</span>`).join("")}</div>
+  `).join("")}
+`);
+
+// Experience
+html += `<section id="experience"><div class="card">
+  <h2>Experience</h2>
+  ${DATA.experience.map(e => `
+    <div style="margin-bottom:1.5rem;">
+      <div class="exp-header">
+        <h3 style="margin:0;">${e.title}</h3>
+        <span class="exp-date">${e.dates}</span>
+      </div>
+      <div style="color:#555; font-style:italic; margin-bottom:0.4rem;">${e.org}</div>
+      <ul>${e.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
+    </div>
+  `).join("")}
+</div></section>`;
+
+// Projects
+html += section("projects", "", `
+  <h2>Projects</h2>
+  ${DATA.projects.map(p => `<h3>${p.title}</h3><p>${p.body}</p>`).join("")}
+`);
+
+// Inspiration
+html += `<section id="inspiration"><div class="card" style="background:#e9f4ff;">
+  <h2>${DATA.inspiration.heading}</h2>
+  ${DATA.inspiration.paragraphs.map(p => `<p>${p}</p>`).join("")}
+</div></section>`;
+
+// Contact
+const c = DATA.contact;
+html += section("contact", "", `
+  <h2>Contact</h2>
+  <p>Email: <a href="mailto:${c.email}" class="link-glow">${c.email}</a></p>
+  <p>LinkedIn: <a href="${c.linkedin}" target="_blank" class="link-glow">${c.linkedinLabel}</a></p>
+`);
+
+document.getElementById("site-body").innerHTML = html;
+
+/* ============================================================
+   BUBBLES
+   ============================================================ */
+const canvas = document.getElementById("bubbles");
+const ctx = canvas.getContext("2d");
+
+function resizeCanvas() {
+  canvas.width  = window.innerWidth;
+  canvas.height = window.innerHeight;
+}
+window.addEventListener("resize", resizeCanvas);
+
+// Delay init so the browser has finished layout before we read innerWidth
+requestAnimationFrame(() => {
+  resizeCanvas();
+
+  const B = DATA.bubbles;
+
+  class Bubble {
+    constructor() { this.reset(true); }
+    reset(scatter) {
+      this.x     = Math.random() * canvas.width;
+      // on first spawn, scatter throughout screen; afterwards rise from bottom
+      this.y     = scatter
+        ? Math.random() * canvas.height
+        : canvas.height + Math.random() * 100;
+      this.size  = Math.random() * (B.maxSize - B.minSize) + B.minSize;
+      this.speed = Math.random() * (B.maxSpeed - B.minSpeed) + B.minSpeed;
+      this.hue   = Math.random() * 360;
     }
-    window.addEventListener("resize", resizeCanvas);
-    resizeCanvas();
-
-    class Bubble {
-      constructor() { this.reset(); }
-      reset() {
-        this.x = Math.random() * canvas.width;
-        this.y = canvas.height + Math.random() * 100;
-        this.size = Math.random() * 50 + 30; 
-        this.speed = Math.random() * 1 + 0.3;
-        this.hue = Math.random() * 360; 
-      }
-      update() {
-        this.y -= this.speed;
-        if (this.y + this.size < 0) this.reset();
-      }
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-        ctx.strokeStyle = `hsla(${this.hue}, 90%, 60%, 0.9)`;
-        ctx.lineWidth = 3;
-        ctx.stroke();
-        const grad = ctx.createRadialGradient(
-          this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.1,
-          this.x, this.y, this.size
-        );
-        grad.addColorStop(0, "rgba(255,255,255,0.8)");
-        grad.addColorStop(1, "rgba(255,255,255,0)");
-        ctx.fillStyle = grad;
-        ctx.fill();
-      }
+    update() {
+      this.y -= this.speed;
+      if (this.y + this.size < 0) this.reset(false);
     }
-
-    for (let i = 0; i < 20; i++) bubbles.push(new Bubble());
-
-    function animate() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-      bubbles.forEach(b => { b.update(); b.draw(); });
-      requestAnimationFrame(animate);
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+      ctx.strokeStyle = `hsla(${this.hue}, 90%, 60%, 0.9)`;
+      ctx.lineWidth = 3;
+      ctx.stroke();
+      const grad = ctx.createRadialGradient(
+        this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.1,
+        this.x, this.y, this.size
+      );
+      grad.addColorStop(0, "rgba(255,255,255,0.8)");
+      grad.addColorStop(1, "rgba(255,255,255,0)");
+      ctx.fillStyle = grad;
+      ctx.fill();
     }
-    animate();
-  </script>
+  }
+
+  const bubbles = Array.from({ length: B.count }, () => new Bubble());
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    bubbles.forEach(b => { b.update(); b.draw(); });
+    requestAnimationFrame(animate);
+  }
+  animate();
+});
+</script>
 </body>
 </html>
