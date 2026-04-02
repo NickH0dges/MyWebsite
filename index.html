@@ -2,445 +2,548 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nick Hodges - Portfolio</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nick Hodges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    html, body {
-      margin: 0;
-      height: 100%;
-      font-family: "Segoe UI", Verdana, sans-serif;
-      color: #fff;
-      text-align: center;
-      overflow-x: hidden;
-      background: #003b70;
+    :root {
+      --bg:       #1c1917;
+      --surface:  #252220;
+      --border:   #38332e;
+      --text:     #e8e2d9;
+      --muted:    #8c837a;
+      --accent:   #6fa8d4;
+      --accent2:  #d4845a;
+      --tag-bg:   #2e2924;
+      --serif:    'Fraunces', Georgia, serif;
+      --sans:     'Outfit', sans-serif;
     }
 
-    /* === BACKGROUND LAYERS === */
-    .bg-container {
-      position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
-      overflow: hidden;
-      z-index: 0;
-    }
-    #gradient {
-      position: absolute;
-      width: 100%; height: 100%;
-      background: radial-gradient(circle at 40% 40%, #63c9ff 0%, #0070c9 60%, #003b70 100%);
-      z-index: 1;
-    }
-    #swooshes {
-      position: absolute;
-      width: 100%; height: 100%;
-      z-index: 2;
-    }
-    #bubbles {
-      position: absolute;
-      width: 100%; height: 100%;
-      z-index: 3;
-      pointer-events: none;
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.75;
     }
 
-    /* === HEADER === */
+    .container {
+      max-width: 820px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ── NAV ── */
     header {
-      padding: 2rem;
-      background: rgba(255,255,255,0.2);
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(28,25,23,0.92);
       backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255,255,255,0.4);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
-      position: relative;
-      z-index: 10;
+      border-bottom: 1px solid var(--border);
     }
-    h1 {
-      font-size: 3rem;
-      text-shadow: 0 0 8px rgba(255,255,255,0.8), 2px 2px 4px rgba(0,0,0,0.6);
-      margin: 0;
+    header .container {
+      display: flex; align-items: center;
+      justify-content: space-between; height: 58px;
     }
-    nav { margin-top: 1rem; }
+    .logo {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+    }
     nav a {
-      margin: 0 0.5rem;
-      padding: 0.5rem 1.2rem;
-      border-radius: 25px;
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--bg);
+      background: var(--accent);
       text-decoration: none;
-      color: #fff;
-      font-weight: bold;
-      background: linear-gradient(to bottom, rgba(255,255,255,0.5), rgba(255,255,255,0.1));
-      border: 1px solid rgba(255,255,255,0.4);
-      box-shadow: inset 0 1px 4px rgba(255,255,255,0.6), 0 2px 6px rgba(0,0,0,0.4);
-      transition: all 0.3s ease;
+      padding: 0.45rem 1.1rem;
+      border-radius: 100px;
+      transition: opacity 0.2s;
+      letter-spacing: 0.01em;
     }
-    nav a:hover {
-      background: linear-gradient(to bottom, rgba(255,255,255,0.8), rgba(255,255,255,0.2));
-      box-shadow: 0 0 12px rgba(0,255,255,0.7), 0 0 18px rgba(0,128,255,0.8);
+    nav a:hover { opacity: 0.85; }
+
+    /* ── HERO ── */
+    #hero {
+      padding: 5.5rem 0 4rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-inner {
+      display: flex; align-items: center; gap: 3.5rem;
     }
 
-    /* === CONTENT === */
-    section {
-      padding: 3rem 1rem;
-      position: relative;
-      z-index: 10;
+    /* photo */
+    .photo-wrap {
+      flex-shrink: 0;
+      width: 152px; height: 152px;
+      border-radius: 50%;
+      background: var(--tag-bg);
+      border: 3px solid var(--border);
+      display: flex; flex-direction: column;
+      align-items: center; justify-content: center;
+      gap: 0.4rem; color: var(--muted);
+      font-size: 0.65rem; font-weight: 500;
+      overflow: hidden; cursor: default;
+      transition: border-color 0.2s;
     }
-    .card {
-      margin: 1rem auto;
-      padding: 2rem;
-      max-width: 700px;
-      border-radius: 20px;
-      background: #f8f9fb;
-      border: 1px solid #ddd;
-      box-shadow: 0 6px 25px rgba(0,0,0,0.5);
-      color: #000;
-      text-shadow: none;
-      text-align: left;
-    }
-    .card h2 { color: #003b70; margin-top: 0; text-align: center; }
-    .card h3 { color: #004b8d; margin-bottom: 0.5rem; margin-top: 1.5rem; }
-    .card h3:first-of-type { margin-top: 0; }
+    .photo-wrap:hover { border-color: var(--accent); }
+    .photo-wrap svg { opacity: 0.3; }
+    /* To add your photo replace the div with:
+       <img class="photo-wrap" src="photo.jpg" alt="Nick Hodges"> */
 
-    /* Certifications / Skills pills */
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin-top: 0.5rem;
+    .hero-text { flex: 1; }
+
+    .whoami-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent2);
+      margin-bottom: 0.8rem;
     }
+
+    h1 {
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: clamp(2.2rem, 5vw, 3rem);
+      color: var(--text);
+      line-height: 1.1;
+      letter-spacing: -0.02em;
+      margin-bottom: 1rem;
+    }
+    h1 em {
+      font-style: italic;
+      font-weight: 300;
+      color: var(--muted);
+    }
+
+    .tagline {
+      font-size: 1.05rem;
+      color: var(--muted);
+      font-weight: 300;
+      max-width: 440px;
+      margin-bottom: 1.6rem;
+      line-height: 1.6;
+    }
+    .tagline strong { color: var(--text); font-weight: 500; }
+
+    .badges { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+    .badge {
+      font-size: 0.72rem; font-weight: 500;
+      padding: 0.25rem 0.7rem; border-radius: 100px;
+      background: var(--tag-bg); color: var(--muted);
+      border: 1px solid var(--border);
+    }
+    .badge.hi {
+      background: #1e3148; color: var(--accent);
+      border-color: #2d4d6e;
+    }
+
+    /* ── SECTIONS ── */
+    section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
+    .sec-eyebrow {
+      font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 0.5rem;
+    }
+    h2 {
+      font-family: var(--serif);
+      font-weight: 600; font-size: 1.65rem;
+      color: var(--text); letter-spacing: -0.02em;
+      margin-bottom: 1.8rem; line-height: 1.2;
+    }
+
+    /* ── ABOUT ── */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
+    .about-bio p { color: var(--muted); margin-bottom: 0.85rem; font-size: 0.95rem; }
+    .about-bio p strong { color: var(--text); font-weight: 500; }
+    .skill-block { margin-bottom: 1.1rem; }
+    .skill-label {
+      font-size: 0.68rem; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--muted); margin-bottom: 0.45rem;
+    }
+    .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
     .tag {
-      background: #ddeeff;
-      color: #003b70;
-      border: 1px solid #99ccff;
-      border-radius: 20px;
-      padding: 0.3rem 0.8rem;
-      font-size: 0.85rem;
-      font-weight: bold;
+      font-size: 0.72rem; font-weight: 400;
+      padding: 0.2rem 0.6rem; border-radius: 6px;
+      background: var(--tag-bg); color: var(--text);
+      border: 1px solid var(--border);
     }
 
-    /* Experience entries */
-    .exp-header {
-      display: flex;
+    /* ── EXPERIENCE ── */
+    .exp-list { display: flex; flex-direction: column; gap: 0.5rem; }
+    .exp-item {
+      border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      background: var(--surface);
+    }
+    .exp-trigger {
+      display: flex; align-items: center;
       justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 0.25rem;
+      padding: 1.1rem 1.3rem; cursor: pointer; gap: 1rem;
+      transition: background 0.15s; user-select: none;
     }
-    .exp-date {
-      font-size: 0.85rem;
-      color: #555;
-      white-space: nowrap;
+    .exp-trigger:hover { background: var(--tag-bg); }
+    .exp-left { display: flex; flex-direction: column; gap: 0.15rem; }
+    .exp-title { font-weight: 600; font-size: 0.92rem; color: var(--text); }
+    .exp-org   { font-size: 0.78rem; color: var(--accent); font-weight: 400; }
+    .exp-right { display: flex; align-items: center; gap: 0.8rem; flex-shrink: 0; }
+    .exp-date  { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
+    .chevron   { color: var(--muted); transition: transform 0.25s; }
+    .exp-item.open .chevron { transform: rotate(180deg); }
+    .exp-body {
+      display: none; padding: 0 1.3rem 1.1rem;
+      border-top: 1px solid var(--border);
     }
-    .card ul {
-      margin: 0.5rem 0 0 1rem;
-      padding: 0;
+    .exp-item.open .exp-body { display: block; }
+    .exp-body ul { margin: 0.7rem 0 0 1.1rem; padding: 0; }
+    .exp-body li {
+      color: var(--muted); font-size: 0.88rem;
+      margin-bottom: 0.35rem; line-height: 1.6;
     }
-    .card ul li { margin-bottom: 0.4rem; line-height: 1.5; }
+    .exp-body li strong { color: var(--text); font-weight: 500; }
 
-    a.link-glow { color: #0070c9; font-weight: bold; text-decoration: none; }
-    a.link-glow:hover { text-decoration: underline; }
+    /* ── PROJECTS ── */
+    .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .proj-card {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: 12px; padding: 1.3rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .proj-card:hover {
+      border-color: #2d4d6e;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+    }
+    .proj-title {
+      font-weight: 600; font-size: 0.9rem;
+      color: var(--accent); margin-bottom: 0.5rem;
+    }
+    .proj-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.6; }
 
+    /* ── INSPIRATION ── */
+    .inspo p { color: var(--muted); margin-bottom: 0.9rem; font-size: 0.95rem; max-width: 600px; }
+    .inspo p strong { color: var(--text); font-weight: 500; }
+
+    /* ── CONTACT ── */
+    .contact-note { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.4rem; max-width: 440px; }
+    .contact-links { display: flex; flex-wrap: wrap; gap: 0.8rem; }
+    .contact-link {
+      display: flex; align-items: center; gap: 0.55rem;
+      padding: 0.7rem 1.2rem; border-radius: 10px;
+      background: var(--surface); border: 1px solid var(--border);
+      color: var(--text); text-decoration: none;
+      font-size: 0.85rem; font-weight: 400;
+      transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+    }
+    .contact-link:hover {
+      border-color: var(--accent); color: var(--accent);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .contact-link svg { opacity: 0.6; flex-shrink: 0; }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 1.8rem 0; text-align: center;
+      font-size: 0.75rem; color: var(--muted);
+    }
+
+    /* ── REVEAL ── */
+    .reveal {
+      opacity: 0; transform: translateY(16px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+    .reveal.visible { opacity: 1; transform: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 620px) {
+      .hero-inner   { flex-direction: column; text-align: center; gap: 2rem; }
+      .badges       { justify-content: center; }
+      .about-grid   { grid-template-columns: 1fr; }
+      .proj-grid    { grid-template-columns: 1fr; }
+      .photo-wrap   { margin: 0 auto; }
+    }
   </style>
 </head>
 <body>
 
-<!-- === BACKGROUND === -->
-<div class="bg-container">
-  <div id="gradient"></div>
-  <svg id="swooshes" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
-    <path d="M 0 600 Q 400 300 1200 500"  stroke="rgba(255,255,255,0.35)" stroke-width="2"   fill="none"/>
-    <path d="M 0 500 Q 500 200 1400 400"  stroke="rgba(255,255,255,0.25)" stroke-width="1.5" fill="none"/>
-    <path d="M 200 700 Q 800 400 1600 600" stroke="rgba(255,255,255,0.2)"  stroke-width="1.5" fill="none"/>
-    <path d="M 0 900 Q 600 700 1400 850"  stroke="rgba(255,255,255,0.3)"  stroke-width="1.5" fill="none"/>
-    <path d="M 100 1000 Q 800 750 1600 950" stroke="rgba(255,255,255,0.25)" stroke-width="2" fill="none"/>
-  </svg>
-  <canvas id="bubbles"></canvas>
-</div>
+<!-- NAV -->
+<header>
+  <div class="container">
+    <div class="logo">Nick Hodges</div>
+    <nav><a href="resume.html">Resume ↗</a></nav>
+  </div>
+</header>
 
-<!-- === PAGE CONTENT (rendered by JS from DATA below) === -->
-<header id="site-header"></header>
-<div id="site-body"></div>
+<!-- HERO -->
+<section id="hero">
+  <div class="container">
+    <div class="hero-inner">
+
+      <!--
+        PHOTO PLACEHOLDER
+        To use your own photo, replace this entire div with:
+        <img class="photo-wrap" src="photo.jpg" alt="Nick Hodges">
+      -->
+      <div class="photo-wrap">
+        <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="12" cy="8" r="4"/>
+          <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+        <span>your photo</span>
+      </div>
+
+      <div class="hero-text">
+        <span class="whoami-label">whoami</span>
+        <h1>Nick Hodges<em>.</em></h1>
+        <p class="tagline">
+          <strong>Cybersecurity &amp; Networking</strong> student at SEMO, graduating May 2026.
+          I build and secure systems, break things in home labs, and fix them before anyone notices.
+        </p>
+        <div class="badges">
+          <span class="badge hi">CompTIA Security+</span>
+          <span class="badge hi">CompTIA Network+</span>
+          <span class="badge">CCNA in progress</span>
+          <span class="badge">CCDC Competitor</span>
+          <span class="badge">Proxmox Homelab</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="reveal">
+  <div class="container">
+    <p class="sec-eyebrow">About</p>
+    <h2>A bit about me</h2>
+    <div class="about-grid">
+      <div class="about-bio">
+        <p>I've been tinkering with computers since I was three years old. By eight or nine I was breaking things on purpose — that curiosity eventually turned into a career path.</p>
+        <p>My specialty is <strong>hardening and securing Windows environments</strong> — Active Directory, Group Policy, DNS, and incident response. I thrive when there's a system to lock down.</p>
+        <p>Outside of work I'm pursuing my CCNA, running a home lab, and looking for hands-on networking or security roles after graduation — ideally somewhere bigger than Cape Girardeau.</p>
+      </div>
+      <div>
+        <div class="skill-block">
+          <div class="skill-label">Cybersecurity</div>
+          <div class="tags">
+            <span class="tag">Splunk</span><span class="tag">SIEM</span>
+            <span class="tag">Defender XDR</span><span class="tag">Wireshark</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">Systems</div>
+          <div class="tags">
+            <span class="tag">Windows Server</span><span class="tag">Active Directory</span>
+            <span class="tag">PowerShell</span><span class="tag">Entra ID</span>
+            <span class="tag">Microsoft 365</span><span class="tag">Proxmox</span>
+            <span class="tag">LDAP</span><span class="tag">LanSweeper</span>
+          </div>
+        </div>
+        <div class="skill-block">
+          <div class="skill-label">Networking</div>
+          <div class="tags">
+            <span class="tag">Cisco</span><span class="tag">VLANs</span>
+            <span class="tag">TCP/IP</span><span class="tag">Firewalls</span>
+            <span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">PBX</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience" class="reveal">
+  <div class="container">
+    <p class="sec-eyebrow">Experience</p>
+    <h2>Where I've worked</h2>
+    <div class="exp-list" id="exp-list"></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects" class="reveal">
+  <div class="container">
+    <p class="sec-eyebrow">Projects</p>
+    <h2>Things I've built</h2>
+    <div class="proj-grid" id="proj-grid"></div>
+  </div>
+</section>
+
+<!-- INSPIRATION -->
+<section id="inspiration" class="reveal">
+  <div class="container">
+    <p class="sec-eyebrow">Inspiration</p>
+    <h2>Why I do this</h2>
+    <div class="inspo">
+      <p>I grew up when the internet still felt personal — when websites were creative little worlds instead of ad platforms. That shaped how I think about technology: it should be useful, interesting, and a little fun.</p>
+      <p>I've always had a soft spot for <strong>Windows 7</strong>. The Aero glass, the gradients, the taskbar glow — it was the first OS that made me feel like computers were genuinely cool. This site is a quiet nod to that era.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="reveal">
+  <div class="container">
+    <p class="sec-eyebrow">Contact</p>
+    <h2>Get in touch</h2>
+    <p class="contact-note">Open to networking and cybersecurity roles — especially hands-on positions. Feel free to reach out.</p>
+    <div class="contact-links">
+      <a href="mailto:nahodges02@gmail.com" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="2" y="4" width="20" height="16" rx="2"/>
+          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+        </svg>
+        nahodges02@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/nick-hodges/" target="_blank" class="contact-link">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+          <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+        </svg>
+        linkedin.com/in/nick-hodges
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    Built by Nick Hodges · 2026
+  </div>
+</footer>
 
 <script>
-/* ============================================================
-   DATA — edit everything here, no need to touch the HTML below
-   ============================================================ */
-const DATA = {
-
-  name: "Nick Hodges",
-  tagline: "Cybersecurity • Networking • IT",
-
-  resumeHref: "resume.html",
-
-  about: {
-    heading: "About Me",
-    paragraphs: [
-      `Hi! I'm <strong>Nick Hodges</strong>, a Cybersecurity major at
-       <strong>Southeast Missouri State University (SEMO)</strong> with a minor in Computer
-       Networking, graduating May 2026.`,
-      `I've had a love for computers for as long as I can remember — I got my first one at
-       three years old and started really tinkering around age eight or nine. My passion for
-       cybersecurity kicked off in high school, where I served as team captain of my JROTC
-       unit's cyber team for three years.`,
-      `My specialty is <strong>hardening and securing Windows environments</strong> — Active
-       Directory, DNS, Group Policy, system defense. That's where I thrive: building secure
-       environments, locking down systems, and protecting critical infrastructure.`,
-    ],
-    certifications: ["CompTIA Security+", "CompTIA Network+"],
-    skillSections: [
-      {
-        label: "Cybersecurity",
-        items: ["Splunk", "SIEM", "Microsoft Defender XDR", "Wireshark"],
-      },
-      {
-        label: "Systems Administration",
-        items: ["Windows Server", "Active Directory", "LDAP", "Entra ID",
-                "Microsoft 365 / Exchange", "PowerShell", "Proxmox", "LanSweeper"],
-      },
-      {
-        label: "Networking",
-        items: ["Firewalls", "VLANs", "TCP/IP", "Cisco", "DNS", "DHCP", "PBX"],
-      },
+/* ══════════════════════════════════════
+   DATA — edit here to update content
+   ══════════════════════════════════════ */
+const EXPERIENCE = [
+  {
+    title: "IT Support Technician",
+    org: "Southeast Missouri State University",
+    dates: "05/2023 – Present",
+    bullets: [
+      "Day-to-day technical support for students, faculty, and staff — hardware, software, network issues, and account access.",
+      "Troubleshoot Windows OS, wired/wireless connectivity, and printing; document solutions and escalate when needed.",
+      "Train and mentor student technicians on troubleshooting, ticket documentation, and customer service.",
+      "Work with full-time IT staff on operations, maintenance, and special projects.",
     ],
   },
-
-  experience: [
-    {
-      title: "IT Support Technician",
-      org: "Southeast Missouri State University",
-      dates: "05/2023 – Present",
-      bullets: [
-        "Provide day-to-day technical support to students, faculty, and staff — hardware, software, network issues, account access, and application errors.",
-        "Troubleshoot Windows OS issues, wired/wireless connectivity, and printing problems while documenting solutions and escalating when needed.",
-        "Train and mentor student technicians on troubleshooting techniques, ticket documentation, and customer service expectations.",
-        "Work closely with full-time IT staff on daily operations, system maintenance, and special projects.",
-      ],
-    },
-    {
-      title: "IT Service Desk Intern",
-      org: "Grimco",
-      dates: "05/2025 – 08/2025",
-      bullets: [
-        "Resolved ~20–25 Jira tickets per day involving Microsoft 365, warehouse management systems (WMS), and ERP platforms.",
-        "Provisioned and deprovisioned user accounts, managed security group permissions and email distribution lists.",
-      ],
-    },
-    {
-      title: "Information Technology Intern",
-      org: "Spectrum Brands",
-      dates: "05/2024 – 08/2024",
-      bullets: [
-        "Provided Level 2 support for ~3,000 users across Windows, SAP, and Citrix environments.",
-        "Led an intern-driven project to upgrade 150+ employee systems from Windows 10 to Windows 11 on an accelerated timeline.",
-        "Managed full lifecycle of end-user devices: provisioning, deprovisioning, hardware prep, secure data wiping, and asset disposal.",
-      ],
-    },
-    {
-      title: "Windows Systems Administrator",
-      org: "National Collegiate Cyber Defense Competition (CCDC)",
-      dates: "08/2022 – Present",
-      bullets: [
-        "Harden Windows Server environments: AD security policies, firewall config, user permissions, vulnerability remediation.",
-        "Monitor SIEM logs for real-time threat detection and lead incident response under competition pressure.",
-        "Collaborate with teammates to document configurations, optimize defense strategies, and maintain system availability.",
-      ],
-    },
-    {
-      title: "Resident Assistant",
-      org: "Southeast Missouri State University",
-      dates: "08/2024 – Present",
-      bullets: [
-        "Provide immediate on-call response to student and facility emergencies for 60+ residents.",
-        "Plan and coordinate monthly resident events to build community and promote engagement.",
-        "Manage access control systems to assist with lockouts and key replacements per security procedures.",
-      ],
-    },
-  ],
-
-  projects: [
-    {
-      title: "Network Traffic Forensics Tool (CS499 Capstone)",
-      body: `A <strong>React/TypeScript + Flask</strong> web application for analyzing PCAP files.
-             Upload a capture file and get a breakdown of traffic flows, protocol distribution,
-             and flagged anomalies. Built as a capstone project demonstrating full-stack development
-             and network forensics skills.`,
-    },
-    {
-      title: "PowerShell Hardening Scripts",
-      body: `Automated PowerShell scripts built for collegiate cyber defense competitions.
-             Enforce host-based firewall rules, configure security policies, and generate GPOs
-             to rapidly harden Windows environments under time pressure.`,
-    },
-    {
-      title: "Proxmox Home Lab",
-      body: `Two-node Proxmox environment hosting Windows Server, Active Directory, Kali Linux,
-             Metasploitable, Wazuh, and Snort. Includes a Cloudflare tunnel with MFA for remote
-             access. Used for simulating enterprise networks and testing defensive workflows.`,
-    },
-    {
-      title: "Cisco 3504 WLC Lab",
-      body: `Currently building out a Cisco Wireless LAN Controller lab environment to practice
-             AP adoption and wireless network management as part of CCNA preparation.`,
-    },
-    {
-      title: "Chrome Extension — Banner to TeamDynamix",
-      body: `Built a Chrome extension to automate copying student data from SEMO's Banner system
-             into TeamDynamix ticketing at the help desk, reducing manual data entry time.`,
-    },
-  ],
-
-  inspiration: {
-    heading: "Inspiration",
-    paragraphs: [
-      `I've always loved remembering when the internet felt simpler — when websites were fun,
-       personal, and full of creativity instead of ads and algorithms. I grew up during that
-       time, and it shaped how I think about technology today.`,
-      `I've always had a soft spot for <strong>Windows 7</strong>. Its design, smooth gradients,
-       and colorful glass aesthetic remind me of a time when technology felt new and exciting.
-       This site is my little tribute to that era — a blend of nostalgia and simplicity,
-       built to capture the feeling of when computers first started to inspire me.`,
+  {
+    title: "IT Service Desk Intern",
+    org: "Grimco",
+    dates: "05/2025 – 08/2025",
+    bullets: [
+      "Resolved ~20–25 Jira tickets/day involving Microsoft 365, warehouse management systems, and ERP platforms.",
+      "Provisioned and deprovisioned user accounts; managed security group permissions and email distribution lists.",
     ],
   },
-
-  contact: {
-    email: "nahodges02@gmail.com",
-    linkedin: "https://www.linkedin.com/in/nick-hodges/",
-    linkedinLabel: "linkedin.com/in/nick-hodges",
+  {
+    title: "Information Technology Intern",
+    org: "Spectrum Brands",
+    dates: "05/2024 – 08/2024",
+    bullets: [
+      "Level 2 support for ~3,000 users across Windows, SAP, and Citrix environments.",
+      "Led an intern-driven project to upgrade <strong>150+ systems</strong> from Windows 10 to Windows 11 on an accelerated timeline.",
+      "Managed full device lifecycle: provisioning, deprovisioning, secure data wiping, and asset disposal.",
+    ],
   },
-
-  /* Bubble speed: increase minSpeed/maxSpeed to go faster */
-  bubbles: {
-    count: 20,
-    minSize: 30,
-    maxSize: 80,
-    minSpeed: 1.5,   // was 0.3
-    maxSpeed: 3.5,   // was 1.3
+  {
+    title: "Windows Systems Administrator",
+    org: "CCDC — National Collegiate Cyber Defense Competition",
+    dates: "08/2022 – Present",
+    bullets: [
+      "Harden Windows Server environments: AD security policies, firewall config, user permissions, vulnerability remediation.",
+      "Monitor SIEM logs for real-time threat detection; lead incident response under competition pressure.",
+      "Collaborate with teammates to document configurations and maintain availability during adversarial scenarios.",
+    ],
   },
-};
+  {
+    title: "Resident Assistant",
+    org: "Southeast Missouri State University",
+    dates: "08/2024 – Present",
+    bullets: [
+      "On-call emergency response for 60+ residents; enforce safety protocols.",
+      "Plan and coordinate monthly events to build community.",
+      "Manage access control for room lockouts and key replacements.",
+    ],
+  },
+];
 
-/* ============================================================
-   RENDER — builds the page from DATA, no need to edit below
-   ============================================================ */
+const PROJECTS = [
+  {
+    title: "Network Traffic Forensics Tool",
+    desc: "CS499 capstone — React/TypeScript + Flask app for analyzing PCAP files. Upload a capture and get traffic breakdowns, protocol distribution, and flagged anomalies.",
+  },
+  {
+    title: "PowerShell Hardening Scripts",
+    desc: "Automated scripts built for CCDC. Enforce firewall rules, configure security policies, and generate GPOs to rapidly harden Windows environments under time pressure.",
+  },
+  {
+    title: "Proxmox Home Lab",
+    desc: "Two-node Proxmox cluster running Windows Server, AD, Kali, Metasploitable, Wazuh, and Snort — with a Cloudflare tunnel and MFA for remote access.",
+  },
+  {
+    title: "Cisco 3504 WLC Lab",
+    desc: "Cisco Wireless LAN Controller environment for AP adoption and wireless management practice, built as part of CCNA prep.",
+  },
+  {
+    title: "Chrome Extension — Banner → TDX",
+    desc: "Extension automating student data entry from SEMO's Banner system into TeamDynamix ticketing, eliminating repetitive manual work at the help desk.",
+  },
+  {
+    title: "FortiGate Captive Portal",
+    desc: "Custom-branded captive portal pages for a FortiGate lab, demonstrating network access control and front-end work.",
+  },
+];
 
-// Header
-document.getElementById("site-header").innerHTML = `
-  <h1>${DATA.name}</h1>
-  <p>${DATA.tagline}</p>
-  <nav><a href="${DATA.resumeHref}">Resume</a></nav>
-`;
-
-function section(id, extraClass, content) {
-  return `<section id="${id}" ${extraClass ? `class="${extraClass}"` : ""}>
-    <div class="card ${extraClass || ""}">${content}</div>
-  </section>`;
-}
-
-let html = "";
-
-// About
-const a = DATA.about;
-html += section("about", "", `
-  <h2>${a.heading}</h2>
-  ${a.paragraphs.map(p => `<p>${p}</p>`).join("")}
-  <h3>Certifications</h3>
-  <div class="tags">${a.certifications.map(c => `<span class="tag">${c}</span>`).join("")}</div>
-  ${a.skillSections.map(s => `
-    <h3>${s.label}</h3>
-    <div class="tags">${s.items.map(i => `<span class="tag">${i}</span>`).join("")}</div>
-  `).join("")}
-`);
-
-// Experience
-html += `<section id="experience"><div class="card">
-  <h2>Experience</h2>
-  ${DATA.experience.map(e => `
-    <div style="margin-bottom:1.5rem;">
-      <div class="exp-header">
-        <h3 style="margin:0;">${e.title}</h3>
-        <span class="exp-date">${e.dates}</span>
+/* ══ RENDER EXPERIENCE ══ */
+const expList = document.getElementById("exp-list");
+EXPERIENCE.forEach((e, i) => {
+  const el = document.createElement("div");
+  el.className = "exp-item" + (i === 0 ? " open" : "");
+  el.innerHTML = `
+    <div class="exp-trigger">
+      <div class="exp-left">
+        <div class="exp-title">${e.title}</div>
+        <div class="exp-org">${e.org}</div>
       </div>
-      <div style="color:#555; font-style:italic; margin-bottom:0.4rem;">${e.org}</div>
-      <ul>${e.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
+      <div class="exp-right">
+        <span class="exp-date">${e.dates}</span>
+        <svg class="chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <polyline points="6 9 12 15 18 9"/>
+        </svg>
+      </div>
     </div>
-  `).join("")}
-</div></section>`;
-
-// Projects
-html += section("projects", "", `
-  <h2>Projects</h2>
-  ${DATA.projects.map(p => `<h3>${p.title}</h3><p>${p.body}</p>`).join("")}
-`);
-
-// Inspiration
-html += `<section id="inspiration"><div class="card" style="background:#e9f4ff;">
-  <h2>${DATA.inspiration.heading}</h2>
-  ${DATA.inspiration.paragraphs.map(p => `<p>${p}</p>`).join("")}
-</div></section>`;
-
-// Contact
-const c = DATA.contact;
-html += section("contact", "", `
-  <h2>Contact</h2>
-  <p>Email: <a href="mailto:${c.email}" class="link-glow">${c.email}</a></p>
-  <p>LinkedIn: <a href="${c.linkedin}" target="_blank" class="link-glow">${c.linkedinLabel}</a></p>
-`);
-
-document.getElementById("site-body").innerHTML = html;
-
-/* ============================================================
-   BUBBLES
-   ============================================================ */
-const canvas = document.getElementById("bubbles");
-const ctx = canvas.getContext("2d");
-
-function resizeCanvas() {
-  canvas.width  = window.innerWidth;
-  canvas.height = window.innerHeight;
-}
-window.addEventListener("resize", resizeCanvas);
-
-// Delay init so the browser has finished layout before we read innerWidth
-requestAnimationFrame(() => {
-  resizeCanvas();
-
-  const B = DATA.bubbles;
-
-  class Bubble {
-    constructor() { this.reset(true); }
-    reset(scatter) {
-      this.x     = Math.random() * canvas.width;
-      // on first spawn, scatter throughout screen; afterwards rise from bottom
-      this.y     = scatter
-        ? Math.random() * canvas.height
-        : canvas.height + Math.random() * 100;
-      this.size  = Math.random() * (B.maxSize - B.minSize) + B.minSize;
-      this.speed = Math.random() * (B.maxSpeed - B.minSpeed) + B.minSpeed;
-      this.hue   = Math.random() * 360;
-    }
-    update() {
-      this.y -= this.speed;
-      if (this.y + this.size < 0) this.reset(false);
-    }
-    draw() {
-      ctx.beginPath();
-      ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-      ctx.strokeStyle = `hsla(${this.hue}, 90%, 60%, 0.9)`;
-      ctx.lineWidth = 3;
-      ctx.stroke();
-      const grad = ctx.createRadialGradient(
-        this.x - this.size * 0.3, this.y - this.size * 0.3, this.size * 0.1,
-        this.x, this.y, this.size
-      );
-      grad.addColorStop(0, "rgba(255,255,255,0.8)");
-      grad.addColorStop(1, "rgba(255,255,255,0)");
-      ctx.fillStyle = grad;
-      ctx.fill();
-    }
-  }
-
-  const bubbles = Array.from({ length: B.count }, () => new Bubble());
-
-  function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    bubbles.forEach(b => { b.update(); b.draw(); });
-    requestAnimationFrame(animate);
-  }
-  animate();
+    <div class="exp-body">
+      <ul>${e.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
+    </div>`;
+  el.querySelector(".exp-trigger").addEventListener("click", () => el.classList.toggle("open"));
+  expList.appendChild(el);
 });
+
+/* ══ RENDER PROJECTS ══ */
+const projGrid = document.getElementById("proj-grid");
+PROJECTS.forEach(p => {
+  const card = document.createElement("div");
+  card.className = "proj-card";
+  card.innerHTML = `<div class="proj-title">${p.title}</div><div class="proj-desc">${p.desc}</div>`;
+  projGrid.appendChild(card);
+});
+
+/* ══ SCROLL REVEAL ══ */
+const io = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+}, { threshold: 0.08 });
+document.querySelectorAll(".reveal").forEach(el => io.observe(el));
 </script>
 </body>
 </html>
