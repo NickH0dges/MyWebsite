@@ -2,61 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Nick Hodges - Resume</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume — Nick Hodges</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --bg:      #1c1917;
+      --surface: #252220;
+      --border:  #38332e;
+      --text:    #e8e2d9;
+      --muted:   #8c837a;
+      --accent:  #6fa8d4;
+      --accent2: #d4845a;
+      --serif:   'Fraunces', Georgia, serif;
+      --sans:    'Outfit', sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      margin: 0;
-      background: radial-gradient(circle at center, #63c9ff, #0070c9 60%, #003b70 100%);
-      font-family: "Segoe UI", Verdana, sans-serif;
-      color: #fff;
-      text-align: center;
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--sans);
       height: 100vh;
+      display: flex;
+      flex-direction: column;
       overflow: hidden;
     }
 
     header {
-      padding: 1.2rem;
-      background: rgba(255,255,255,0.2);
-      backdrop-filter: blur(10px);
-      border-bottom: 1px solid rgba(255,255,255,0.3);
-      box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 0 2rem;
+      height: 58px;
+      flex-shrink: 0;
+      background: rgba(28,25,23,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
     }
+
+    .back {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--muted);
+      text-decoration: none;
+      padding: 0.4rem 0.9rem;
+      border-radius: 100px;
+      border: 1px solid var(--border);
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back:hover { color: var(--text); border-color: var(--muted); }
 
     h1 {
-      margin: 0;
-      font-size: 2rem;
-      text-shadow: 0 0 8px rgba(255,255,255,0.8);
+      font-family: var(--serif);
+      font-weight: 600;
+      font-size: 1.1rem;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      flex: 1;
     }
+
+    .dl-link {
+      font-size: 0.82rem;
+      font-weight: 500;
+      color: var(--bg);
+      background: var(--accent);
+      text-decoration: none;
+      padding: 0.45rem 1.1rem;
+      border-radius: 100px;
+      transition: opacity 0.2s;
+    }
+    .dl-link:hover { opacity: 0.82; }
 
     iframe {
+      flex: 1;
       width: 100%;
-      height: calc(100vh - 80px);
       border: none;
-      box-shadow: 0 0 30px rgba(0,0,0,0.6);
-    }
-
-    a.back {
-      color: #fff;
-      font-weight: bold;
-      text-decoration: none;
-      margin-left: 1rem;
-      background: rgba(255,255,255,0.25);
-      padding: 0.3rem 1rem;
-      border-radius: 10px;
-      transition: all 0.2s ease;
-    }
-    a.back:hover {
-      background: rgba(255,255,255,0.4);
     }
   </style>
 </head>
 <body>
   <header>
     <a href="index.html" class="back">← Back</a>
-    <h1>My Resume</h1>
+    <h1>Resume</h1>
+    <a href="resume.pdf" download class="dl-link">Download ↓</a>
   </header>
-
-  <!-- Embed your resume -->
   <iframe src="resume.pdf"></iframe>
 </body>
 </html>
