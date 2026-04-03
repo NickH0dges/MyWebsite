@@ -66,34 +66,24 @@
     #hero { padding: 5.5rem 0 4rem; border-bottom: 1px solid var(--border); }
     .hero-inner { display: flex; align-items: center; gap: 3.5rem; }
 
-    /* ── PHOTO ──
-       Drop your photo (e.g. nick.jpg) in the same folder as index.html.
-       Then in the HTML below, replace the <div class="photo-placeholder">
-       block with: <img class="photo" src="nick.jpg" alt="Nick Hodges">
-    */
-    .photo-placeholder {
-      flex-shrink: 0; width: 152px; height: 152px;
-      border-radius: 50%; border: 3px solid var(--border);
-      background: var(--tag-bg);
-      display: flex; flex-direction: column;
-      align-items: center; justify-content: center;
-      gap: 0.4rem; color: var(--muted);
-      font-size: 0.65rem; overflow: hidden;
-    }
-    .photo-placeholder svg { opacity: 0.25; }
     .photo {
-      flex-shrink: 0; width: 152px; height: 152px;
-      border-radius: 50%; border: 3px solid var(--border);
-      object-fit: cover; display: block;
+      flex-shrink: 0;
+      width: 152px; height: 152px;
+      border-radius: 50%;
+      border: 3px solid var(--border);
+      object-fit: cover;
+      display: block;
     }
 
     .hero-text { flex: 1; }
+
     .whoami-label {
       display: inline-block; font-size: 0.72rem;
       font-weight: 600; letter-spacing: 0.1em;
       text-transform: uppercase; color: var(--accent2);
       margin-bottom: 0.8rem;
     }
+
     h1 {
       font-family: var(--serif); font-weight: 600;
       font-size: clamp(2.2rem, 5vw, 3rem);
@@ -168,7 +158,7 @@
     .exp-date  { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
     .chevron   { color: var(--muted); transition: transform 0.25s; }
     .exp-item.open .chevron { transform: rotate(180deg); }
-    .exp-body  {
+    .exp-body {
       display: none; padding: 0 1.3rem 1.1rem;
       border-top: 1px solid var(--border);
     }
@@ -220,20 +210,13 @@
       font-size: 0.75rem; color: var(--muted);
     }
 
-    /* SCROLL REVEAL */
-    .reveal {
-      opacity: 0; transform: translateY(16px);
-      transition: opacity 0.55s ease, transform 0.55s ease;
-    }
-    .reveal.visible { opacity: 1; transform: none; }
-
     /* RESPONSIVE */
     @media (max-width: 620px) {
-      .hero-inner  { flex-direction: column; text-align: center; gap: 2rem; }
-      .badges      { justify-content: center; }
-      .about-grid  { grid-template-columns: 1fr; }
-      .proj-grid   { grid-template-columns: 1fr; }
-      .photo-placeholder, .photo { margin: 0 auto; }
+      .hero-inner { flex-direction: column; text-align: center; gap: 2rem; }
+      .badges     { justify-content: center; }
+      .about-grid { grid-template-columns: 1fr; }
+      .proj-grid  { grid-template-columns: 1fr; }
+      .photo      { margin: 0 auto; }
     }
   </style>
 </head>
@@ -249,9 +232,7 @@
 <section id="hero">
   <div class="container">
     <div class="hero-inner">
-
       <img class="photo" src="nick.png" alt="Nick Hodges">
-
       <div class="hero-text">
         <span class="whoami-label">whoami</span>
         <h1>Nick Hodges<em>.</em></h1>
@@ -271,7 +252,7 @@
   </div>
 </section>
 
-<section id="about" class="reveal">
+<section id="about">
   <div class="container">
     <p class="sec-eyebrow">About</p>
     <h2>A bit about me</h2>
@@ -321,7 +302,7 @@
   </div>
 </section>
 
-<section id="experience" class="reveal">
+<section id="experience">
   <div class="container">
     <p class="sec-eyebrow">Experience</p>
     <h2>Where I've worked</h2>
@@ -329,7 +310,7 @@
   </div>
 </section>
 
-<section id="projects" class="reveal">
+<section id="projects">
   <div class="container">
     <p class="sec-eyebrow">Projects</p>
     <h2>Things I've built</h2>
@@ -337,7 +318,7 @@
   </div>
 </section>
 
-<section id="inspiration" class="reveal">
+<section id="inspiration">
   <div class="container">
     <p class="sec-eyebrow">Inspiration</p>
     <h2>Why I do this</h2>
@@ -348,18 +329,18 @@
   </div>
 </section>
 
-<section id="contact" class="reveal">
+<section id="contact">
   <div class="container">
     <p class="sec-eyebrow">Contact</p>
     <h2>Get in touch</h2>
     <p class="contact-note">Open to networking and cybersecurity roles — especially hands-on positions. Feel free to reach out.</p>
     <div class="contact-links">
-      <a href="/cdn-cgi/l/email-protection#e688878e8982818395d6d4a6818b878f8ac885898b" class="contact-link">
+      <a href="mailto:nahodges02@gmail.com" class="contact-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <rect x="2" y="4" width="20" height="16" rx="2"/>
           <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
         </svg>
-        <span class="__cf_email__" data-cfemail="4d232c2522292a283e7d7f0d2a202c2421632e2220">[email&#160;protected]</span>
+        nahodges02@gmail.com
       </a>
       <a href="https://www.linkedin.com/in/nick-hodges/" target="_blank" class="contact-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
@@ -377,10 +358,7 @@
   <div class="container">Built by Nick Hodges · 2026</div>
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-/* ════════════════════════════════════════
-   DATA — edit this section to update content
-   ════════════════════════════════════════ */
+<script>
 const EXPERIENCE = [
   {
     title: "IT Support Technician",
@@ -408,7 +386,7 @@ const EXPERIENCE = [
     dates: "05/2024 – 08/2024",
     bullets: [
       "Level 2 support for ~3,000 users across Windows, SAP, and Citrix environments.",
-      "Led an intern-driven project to upgrade <strong>150+ systems</strong> from Windows 10 to Windows 11 on an accelerated timeline.",
+      "Led an intern-driven project to upgrade 150+ systems from Windows 10 to Windows 11 on an accelerated timeline.",
       "Managed full device lifecycle: provisioning, deprovisioning, secure data wiping, and asset disposal.",
     ],
   },
@@ -461,10 +439,10 @@ const PROJECTS = [
   },
 ];
 
-/* ── RENDER EXPERIENCE ── */
-const expList = document.getElementById("exp-list");
-EXPERIENCE.forEach((e, i) => {
-  const el = document.createElement("div");
+/* RENDER EXPERIENCE */
+var expList = document.getElementById("exp-list");
+EXPERIENCE.forEach(function(e, i) {
+  var el = document.createElement("div");
   el.className = "exp-item" + (i === 0 ? " open" : "");
   el.innerHTML =
     '<div class="exp-trigger">' +
@@ -478,7 +456,7 @@ EXPERIENCE.forEach((e, i) => {
       '</div>' +
     '</div>' +
     '<div class="exp-body"><ul>' +
-      e.bullets.map(function(b){ return '<li>' + b + '</li>'; }).join('') +
+      e.bullets.map(function(b) { return '<li>' + b + '</li>'; }).join('') +
     '</ul></div>';
   el.querySelector(".exp-trigger").addEventListener("click", function() {
     el.classList.toggle("open");
@@ -486,14 +464,14 @@ EXPERIENCE.forEach((e, i) => {
   expList.appendChild(el);
 });
 
-/* ── RENDER PROJECTS ── */
-const projGrid = document.getElementById("proj-grid");
+/* RENDER PROJECTS */
+var projGrid = document.getElementById("proj-grid");
 PROJECTS.forEach(function(p) {
-  const card = document.createElement("div");
+  var card = document.createElement("div");
   card.className = "proj-card";
   card.innerHTML = '<div class="proj-title">' + p.title + '</div><div class="proj-desc">' + p.desc + '</div>';
   projGrid.appendChild(card);
 });
-
-/* ── SCROLL REVEAL ── */
-const observer = new IntersectionObserver(function(entr
+</script>
+</body>
+</html>
