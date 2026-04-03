@@ -8,16 +8,16 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,600;1,300&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     :root {
-      --bg:       #1c1917;
-      --surface:  #252220;
-      --border:   #38332e;
-      --text:     #e8e2d9;
-      --muted:    #8c837a;
-      --accent:   #6fa8d4;
-      --accent2:  #d4845a;
-      --tag-bg:   #2e2924;
-      --serif:    'Fraunces', Georgia, serif;
-      --sans:     'Outfit', sans-serif;
+      --bg:      #1c1917;
+      --surface: #252220;
+      --border:  #38332e;
+      --text:    #e8e2d9;
+      --muted:   #8c837a;
+      --accent:  #6fa8d4;
+      --accent2: #d4845a;
+      --tag-bg:  #2e2924;
+      --serif:   'Fraunces', Georgia, serif;
+      --sans:    'Outfit', sans-serif;
     }
 
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,7 +37,7 @@
       padding: 0 2rem;
     }
 
-    /* ── NAV ── */
+    /* NAV */
     header {
       position: sticky; top: 0; z-index: 100;
       background: rgba(28,25,23,0.92);
@@ -50,86 +50,62 @@
     }
     .logo {
       font-family: var(--serif);
-      font-weight: 600;
-      font-size: 1.1rem;
-      color: var(--text);
-      letter-spacing: -0.01em;
+      font-weight: 600; font-size: 1.1rem;
+      color: var(--text); letter-spacing: -0.01em;
     }
     nav a {
-      font-size: 0.82rem;
-      font-weight: 500;
-      color: var(--bg);
-      background: var(--accent);
+      font-size: 0.82rem; font-weight: 500;
+      color: var(--bg); background: var(--accent);
       text-decoration: none;
-      padding: 0.45rem 1.1rem;
-      border-radius: 100px;
+      padding: 0.45rem 1.1rem; border-radius: 100px;
       transition: opacity 0.2s;
-      letter-spacing: 0.01em;
     }
-    nav a:hover { opacity: 0.85; }
+    nav a:hover { opacity: 0.82; }
 
-    /* ── HERO ── */
-    #hero {
-      padding: 5.5rem 0 4rem;
-      border-bottom: 1px solid var(--border);
-    }
-    .hero-inner {
-      display: flex; align-items: center; gap: 3.5rem;
-    }
+    /* HERO */
+    #hero { padding: 5.5rem 0 4rem; border-bottom: 1px solid var(--border); }
+    .hero-inner { display: flex; align-items: center; gap: 3.5rem; }
 
-    /* photo */
-    .photo-wrap {
-      flex-shrink: 0;
-      width: 152px; height: 152px;
-      border-radius: 50%;
+    /* ── PHOTO ──
+       Drop your photo (e.g. nick.jpg) in the same folder as index.html.
+       Then in the HTML below, replace the <div class="photo-placeholder">
+       block with: <img class="photo" src="nick.jpg" alt="Nick Hodges">
+    */
+    .photo-placeholder {
+      flex-shrink: 0; width: 152px; height: 152px;
+      border-radius: 50%; border: 3px solid var(--border);
       background: var(--tag-bg);
-      border: 3px solid var(--border);
       display: flex; flex-direction: column;
       align-items: center; justify-content: center;
       gap: 0.4rem; color: var(--muted);
-      font-size: 0.65rem; font-weight: 500;
-      overflow: hidden; cursor: default;
-      transition: border-color 0.2s;
+      font-size: 0.65rem; overflow: hidden;
     }
-    .photo-wrap:hover { border-color: var(--accent); }
-    .photo-wrap svg { opacity: 0.3; }
-    * To add your photo replace the div with:
-       <img class="photo-wrap" src="nick.jpg" alt="Nick Hodges"> *
+    .photo-placeholder svg { opacity: 0.25; }
+    .photo {
+      flex-shrink: 0; width: 152px; height: 152px;
+      border-radius: 50%; border: 3px solid var(--border);
+      object-fit: cover; display: block;
+    }
 
     .hero-text { flex: 1; }
-
     .whoami-label {
-      display: inline-block;
-      font-size: 0.75rem;
-      font-weight: 600;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      color: var(--accent2);
+      display: inline-block; font-size: 0.72rem;
+      font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--accent2);
       margin-bottom: 0.8rem;
     }
-
     h1 {
-      font-family: var(--serif);
-      font-weight: 600;
+      font-family: var(--serif); font-weight: 600;
       font-size: clamp(2.2rem, 5vw, 3rem);
-      color: var(--text);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      margin-bottom: 1rem;
+      color: var(--text); line-height: 1.1;
+      letter-spacing: -0.02em; margin-bottom: 1rem;
     }
-    h1 em {
-      font-style: italic;
-      font-weight: 300;
-      color: var(--muted);
-    }
+    h1 em { font-style: italic; font-weight: 300; color: var(--muted); }
 
     .tagline {
-      font-size: 1.05rem;
-      color: var(--muted);
-      font-weight: 300;
-      max-width: 440px;
-      margin-bottom: 1.6rem;
-      line-height: 1.6;
+      font-size: 1.02rem; color: var(--muted);
+      font-weight: 300; max-width: 440px;
+      margin-bottom: 1.6rem; line-height: 1.65;
     }
     .tagline strong { color: var(--text); font-weight: 500; }
 
@@ -140,12 +116,9 @@
       background: var(--tag-bg); color: var(--muted);
       border: 1px solid var(--border);
     }
-    .badge.hi {
-      background: #1e3148; color: var(--accent);
-      border-color: #2d4d6e;
-    }
+    .badge.hi { background: #1e3148; color: var(--accent); border-color: #2d4d6e; }
 
-    /* ── SECTIONS ── */
+    /* SECTIONS */
     section { padding: 3.5rem 0; border-bottom: 1px solid var(--border); }
     .sec-eyebrow {
       font-size: 0.72rem; font-weight: 600;
@@ -153,13 +126,12 @@
       color: var(--accent2); margin-bottom: 0.5rem;
     }
     h2 {
-      font-family: var(--serif);
-      font-weight: 600; font-size: 1.65rem;
-      color: var(--text); letter-spacing: -0.02em;
-      margin-bottom: 1.8rem; line-height: 1.2;
+      font-family: var(--serif); font-weight: 600;
+      font-size: 1.65rem; color: var(--text);
+      letter-spacing: -0.02em; margin-bottom: 1.8rem; line-height: 1.2;
     }
 
-    /* ── ABOUT ── */
+    /* ABOUT */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; }
     .about-bio p { color: var(--muted); margin-bottom: 0.85rem; font-size: 0.95rem; }
     .about-bio p strong { color: var(--text); font-weight: 500; }
@@ -171,18 +143,16 @@
     }
     .tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
     .tag {
-      font-size: 0.72rem; font-weight: 400;
-      padding: 0.2rem 0.6rem; border-radius: 6px;
-      background: var(--tag-bg); color: var(--text);
-      border: 1px solid var(--border);
+      font-size: 0.72rem; padding: 0.2rem 0.6rem;
+      border-radius: 6px; background: var(--tag-bg);
+      color: var(--text); border: 1px solid var(--border);
     }
 
-    /* ── EXPERIENCE ── */
+    /* EXPERIENCE */
     .exp-list { display: flex; flex-direction: column; gap: 0.5rem; }
     .exp-item {
-      border: 1px solid var(--border);
-      border-radius: 12px; overflow: hidden;
-      background: var(--surface);
+      border: 1px solid var(--border); border-radius: 12px;
+      overflow: hidden; background: var(--surface);
     }
     .exp-trigger {
       display: flex; align-items: center;
@@ -198,7 +168,7 @@
     .exp-date  { font-size: 0.72rem; color: var(--muted); white-space: nowrap; }
     .chevron   { color: var(--muted); transition: transform 0.25s; }
     .exp-item.open .chevron { transform: rotate(180deg); }
-    .exp-body {
+    .exp-body  {
       display: none; padding: 0 1.3rem 1.1rem;
       border-top: 1px solid var(--border);
     }
@@ -210,7 +180,7 @@
     }
     .exp-body li strong { color: var(--text); font-weight: 500; }
 
-    /* ── PROJECTS ── */
+    /* PROJECTS */
     .proj-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .proj-card {
       background: var(--surface); border: 1px solid var(--border);
@@ -227,11 +197,11 @@
     }
     .proj-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.6; }
 
-    /* ── INSPIRATION ── */
+    /* INSPIRATION */
     .inspo p { color: var(--muted); margin-bottom: 0.9rem; font-size: 0.95rem; max-width: 600px; }
     .inspo p strong { color: var(--text); font-weight: 500; }
 
-    /* ── CONTACT ── */
+    /* CONTACT */
     .contact-note { color: var(--muted); font-size: 0.95rem; margin-bottom: 1.4rem; max-width: 440px; }
     .contact-links { display: flex; flex-wrap: wrap; gap: 0.8rem; }
     .contact-link {
@@ -239,41 +209,36 @@
       padding: 0.7rem 1.2rem; border-radius: 10px;
       background: var(--surface); border: 1px solid var(--border);
       color: var(--text); text-decoration: none;
-      font-size: 0.85rem; font-weight: 400;
-      transition: border-color 0.2s, color 0.2s, box-shadow 0.2s;
+      font-size: 0.85rem; transition: border-color 0.2s, color 0.2s;
     }
-    .contact-link:hover {
-      border-color: var(--accent); color: var(--accent);
-      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
-    }
-    .contact-link svg { opacity: 0.6; flex-shrink: 0; }
+    .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+    .contact-link svg { opacity: 0.5; flex-shrink: 0; }
 
-    /* ── FOOTER ── */
+    /* FOOTER */
     footer {
       padding: 1.8rem 0; text-align: center;
       font-size: 0.75rem; color: var(--muted);
     }
 
-    /* ── REVEAL ── */
+    /* SCROLL REVEAL */
     .reveal {
       opacity: 0; transform: translateY(16px);
       transition: opacity 0.55s ease, transform 0.55s ease;
     }
     .reveal.visible { opacity: 1; transform: none; }
 
-    /* ── RESPONSIVE ── */
+    /* RESPONSIVE */
     @media (max-width: 620px) {
-      .hero-inner   { flex-direction: column; text-align: center; gap: 2rem; }
-      .badges       { justify-content: center; }
-      .about-grid   { grid-template-columns: 1fr; }
-      .proj-grid    { grid-template-columns: 1fr; }
-      .photo-wrap   { margin: 0 auto; }
+      .hero-inner  { flex-direction: column; text-align: center; gap: 2rem; }
+      .badges      { justify-content: center; }
+      .about-grid  { grid-template-columns: 1fr; }
+      .proj-grid   { grid-template-columns: 1fr; }
+      .photo-placeholder, .photo { margin: 0 auto; }
     }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <header>
   <div class="container">
     <div class="logo">Nick Hodges</div>
@@ -281,17 +246,17 @@
   </div>
 </header>
 
-<!-- HERO -->
 <section id="hero">
   <div class="container">
     <div class="hero-inner">
 
-      <!--
-        PHOTO PLACEHOLDER
-        To use your own photo, replace this entire div with:
-        <img class="photo-wrap" src="photo.jpg" alt="Nick Hodges">
+      <!-- PHOTO
+           1. Drop nick.jpg in the same folder as this file
+           2. Delete the <div class="photo-placeholder"> block below
+           3. Uncomment the <img> line
       -->
-      <div class="photo-wrap">
+      <!-- <img class="photo" src="nick.jpg" alt="Nick Hodges"> -->
+      <div class="photo-placeholder">
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2">
           <circle cx="12" cy="8" r="4"/>
           <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
@@ -314,12 +279,10 @@
           <span class="badge">Proxmox Homelab</span>
         </div>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about" class="reveal">
   <div class="container">
     <p class="sec-eyebrow">About</p>
@@ -328,31 +291,41 @@
       <div class="about-bio">
         <p>I've been tinkering with computers since I was three years old. By eight or nine I was breaking things on purpose — that curiosity eventually turned into a career path.</p>
         <p>My specialty is <strong>hardening and securing Windows environments</strong> — Active Directory, Group Policy, DNS, and incident response. I thrive when there's a system to lock down.</p>
-        <p>Outside of work I'm pursuing my CCNA, running a home lab, and looking for hands-on networking or security roles after graduation — ideally somewhere bigger than Cape Girardeau.</p>
+        <p>Outside of work I'm pursuing my CCNA, running a home lab, and looking for hands-on networking or security roles after graduation.</p>
       </div>
       <div>
         <div class="skill-block">
           <div class="skill-label">Cybersecurity</div>
           <div class="tags">
-            <span class="tag">Splunk</span><span class="tag">SIEM</span>
-            <span class="tag">Defender XDR</span><span class="tag">Wireshark</span>
+            <span class="tag">Splunk</span>
+            <span class="tag">SIEM</span>
+            <span class="tag">Defender XDR</span>
+            <span class="tag">Wireshark</span>
           </div>
         </div>
         <div class="skill-block">
           <div class="skill-label">Systems</div>
           <div class="tags">
-            <span class="tag">Windows Server</span><span class="tag">Active Directory</span>
-            <span class="tag">PowerShell</span><span class="tag">Entra ID</span>
-            <span class="tag">Microsoft 365</span><span class="tag">Proxmox</span>
-            <span class="tag">LDAP</span><span class="tag">LanSweeper</span>
+            <span class="tag">Windows Server</span>
+            <span class="tag">Active Directory</span>
+            <span class="tag">PowerShell</span>
+            <span class="tag">Entra ID</span>
+            <span class="tag">Microsoft 365</span>
+            <span class="tag">Proxmox</span>
+            <span class="tag">LDAP</span>
+            <span class="tag">LanSweeper</span>
           </div>
         </div>
         <div class="skill-block">
           <div class="skill-label">Networking</div>
           <div class="tags">
-            <span class="tag">Cisco</span><span class="tag">VLANs</span>
-            <span class="tag">TCP/IP</span><span class="tag">Firewalls</span>
-            <span class="tag">DNS</span><span class="tag">DHCP</span><span class="tag">PBX</span>
+            <span class="tag">Cisco</span>
+            <span class="tag">VLANs</span>
+            <span class="tag">TCP/IP</span>
+            <span class="tag">Firewalls</span>
+            <span class="tag">DNS</span>
+            <span class="tag">DHCP</span>
+            <span class="tag">PBX</span>
           </div>
         </div>
       </div>
@@ -360,7 +333,6 @@
   </div>
 </section>
 
-<!-- EXPERIENCE -->
 <section id="experience" class="reveal">
   <div class="container">
     <p class="sec-eyebrow">Experience</p>
@@ -369,7 +341,6 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects" class="reveal">
   <div class="container">
     <p class="sec-eyebrow">Projects</p>
@@ -378,8 +349,17 @@
   </div>
 </section>
 
+<section id="inspiration" class="reveal">
+  <div class="container">
+    <p class="sec-eyebrow">Inspiration</p>
+    <h2>Why I do this</h2>
+    <div class="inspo">
+      <p>I grew up when the internet still felt personal — when websites were creative little worlds instead of ad platforms. That shaped how I think about technology: it should be useful, interesting, and a little fun.</p>
+      <p>I've always had a soft spot for <strong>Windows 7</strong>. The Aero glass, the gradients, the taskbar glow — it was the first OS that made me feel like computers were genuinely cool. This site is a quiet nod to that era.</p>
+    </div>
+  </div>
+</section>
 
-<!-- CONTACT -->
 <section id="contact" class="reveal">
   <div class="container">
     <p class="sec-eyebrow">Contact</p>
@@ -396,7 +376,8 @@
       <a href="https://www.linkedin.com/in/nick-hodges/" target="_blank" class="contact-link">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
           <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
-          <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
+          <rect x="2" y="9" width="4" height="12"/>
+          <circle cx="4" cy="4" r="2"/>
         </svg>
         linkedin.com/in/nick-hodges
       </a>
@@ -405,15 +386,13 @@
 </section>
 
 <footer>
-  <div class="container">
-    Built by Nick Hodges · 2026
-  </div>
+  <div class="container">Built by Nick Hodges · 2026</div>
 </footer>
 
 <script>
-/* ══════════════════════════════════════
-   DATA — edit here to update content
-   ══════════════════════════════════════ */
+/* ════════════════════════════════════════
+   DATA — edit this section to update content
+   ════════════════════════════════════════ */
 const EXPERIENCE = [
   {
     title: "IT Support Technician",
@@ -485,7 +464,7 @@ const PROJECTS = [
     desc: "Cisco Wireless LAN Controller environment for AP adoption and wireless management practice, built as part of CCNA prep.",
   },
   {
-    title: "Chrome Extension — Banner → TDX",
+    title: "Chrome Extension — Banner to TDX",
     desc: "Extension automating student data entry from SEMO's Banner system into TeamDynamix ticketing, eliminating repetitive manual work at the help desk.",
   },
   {
@@ -494,45 +473,49 @@ const PROJECTS = [
   },
 ];
 
-/* ══ RENDER EXPERIENCE ══ */
+/* ── RENDER EXPERIENCE ── */
 const expList = document.getElementById("exp-list");
 EXPERIENCE.forEach((e, i) => {
   const el = document.createElement("div");
   el.className = "exp-item" + (i === 0 ? " open" : "");
-  el.innerHTML = `
-    <div class="exp-trigger">
-      <div class="exp-left">
-        <div class="exp-title">${e.title}</div>
-        <div class="exp-org">${e.org}</div>
-      </div>
-      <div class="exp-right">
-        <span class="exp-date">${e.dates}</span>
-        <svg class="chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-      </div>
-    </div>
-    <div class="exp-body">
-      <ul>${e.bullets.map(b => `<li>${b}</li>`).join("")}</ul>
-    </div>`;
-  el.querySelector(".exp-trigger").addEventListener("click", () => el.classList.toggle("open"));
+  el.innerHTML =
+    '<div class="exp-trigger">' +
+      '<div class="exp-left">' +
+        '<div class="exp-title">' + e.title + '</div>' +
+        '<div class="exp-org">' + e.org + '</div>' +
+      '</div>' +
+      '<div class="exp-right">' +
+        '<span class="exp-date">' + e.dates + '</span>' +
+        '<svg class="chevron" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>' +
+      '</div>' +
+    '</div>' +
+    '<div class="exp-body"><ul>' +
+      e.bullets.map(function(b){ return '<li>' + b + '</li>'; }).join('') +
+    '</ul></div>';
+  el.querySelector(".exp-trigger").addEventListener("click", function() {
+    el.classList.toggle("open");
+  });
   expList.appendChild(el);
 });
 
-/* ══ RENDER PROJECTS ══ */
+/* ── RENDER PROJECTS ── */
 const projGrid = document.getElementById("proj-grid");
-PROJECTS.forEach(p => {
+PROJECTS.forEach(function(p) {
   const card = document.createElement("div");
   card.className = "proj-card";
-  card.innerHTML = `<div class="proj-title">${p.title}</div><div class="proj-desc">${p.desc}</div>`;
+  card.innerHTML = '<div class="proj-title">' + p.title + '</div><div class="proj-desc">' + p.desc + '</div>';
   projGrid.appendChild(card);
 });
 
-/* ══ SCROLL REVEAL ══ */
-const io = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add("visible"); });
+/* ── SCROLL REVEAL ── */
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) e.target.classList.add("visible");
+  });
 }, { threshold: 0.08 });
-document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+document.querySelectorAll(".reveal").forEach(function(el) {
+  observer.observe(el);
+});
 </script>
 </body>
 </html>
